@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\yangz\\OneDrive\\Desktop\\Project1\\",
+  "WorkspaceRootPath": "C:\\Users\\Kyle\\OneDrive\\\u684C\u9762\\GOBBLET-GOBBLERS\\Project1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{86F3DAFD-BFF0-43FA-AD95-F6B02BAA9029}|Project1\\Project1.vcxproj|C:\\Users\\yangz\\OneDrive\\Desktop\\Project1\\source\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{86F3DAFD-BFF0-43FA-AD95-F6B02BAA9029}|Project1\\Project1.vcxproj|C:\\Users\\Kyle\\OneDrive\\\u684C\u9762\\GOBBLET-GOBBLERS\\Project1\\source\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{86F3DAFD-BFF0-43FA-AD95-F6B02BAA9029}|Project1\\Project1.vcxproj|solutionrelative:source\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.c",
-              "DocumentMoniker": "C:\\Users\\yangz\\OneDrive\\Desktop\\Project1\\source\\main.c",
+              "DocumentMoniker": "C:\\Users\\Kyle\\OneDrive\\\u684C\u9762\\GOBBLET-GOBBLERS\\Project1\\source\\main.c",
               "RelativeDocumentMoniker": "source\\main.c",
-              "ToolTip": "C:\\Users\\yangz\\OneDrive\\Desktop\\Project1\\source\\main.c*",
+              "ToolTip": "C:\\Users\\Kyle\\OneDrive\\\u684C\u9762\\GOBBLET-GOBBLERS\\Project1\\source\\main.c*",
               "RelativeToolTip": "source\\main.c*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADUAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-12-27T04:01:50.933Z",
               "EditorCaption": ""
