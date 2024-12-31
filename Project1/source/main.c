@@ -1,20 +1,20 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
 #define PLAYER1 1
 #define PLAYER2 2
 
-//«Ø¥ß´Ñ½L
+//å»ºç«‹æ£‹ç›¤
 //void initializeBoard()
 
-//¦C¦L´Ñ½L
+//åˆ—å°æ£‹ç›¤
 //void printBoard()
 
-//ÀË¬d¬O§_¦³ª±®aÀò³Ó
+//æª¢æŸ¥æ˜¯å¦æœ‰ç©å®¶ç²å‹
 //bool checkWin()
 
-//ÀË¬d©ñ¸m´Ñ¤l®É¡A¦³µL¦X¥GÅŞ¿è
+//æª¢æŸ¥æ”¾ç½®æ£‹å­æ™‚ï¼Œæœ‰ç„¡åˆä¹é‚è¼¯
 //bool placePiece()
 
 int main() {
@@ -22,33 +22,33 @@ int main() {
     int row, col, size;
     //initializeBoard();
 
-    printf("Åwªï¨Ó¨ìGobblet Gobblers! ¹CÀ¸¤¶²Ğ¦p¤U:\n");
-    printf("³o¬O¤@­Ó¶i¶¥ª©3x3°é°é¤e¤eªº¹CÀ¸¡A¹CÀ¸¥Ø¼Ğ¨ÌÂÂ¬O­n§¹¦¨³s½u\n");
-    printf("µM¦Ó¤£¦P©ó´¶³q°é°é¤e¤eªº¬O¡A¨C­Óª±®a¤â¤W¦³¤j¡B¤¤¡B¤p¤TºØ´Ñ¤l¡A¨CºØ¦U¨â­Ó\n");
-    printf("¤j´Ñ¤l¥i¥H»\¹L¹ï¤âªº¤¤´Ñ¤l¡A¤¤´Ñ¤l¥i¥H»\¹L¹ï¤âªº¤p´Ñ¤l\n");
-    printf("¤]¦]¬°³o­Ó³W«h¡AÅıÂ²³æªº°é°é¤e¤e¼W¥[¤£¤ÖÅÜ¼Æ¡A©Ò¥H¡AÅı§Ú­Ì¶}©l§a!\n");
-    printf("ª±®a1 (X)¡Aª±®a2 (O)¡C\n");
+    printf("æ­¡è¿ä¾†åˆ°Gobblet Gobblers! éŠæˆ²ä»‹ç´¹å¦‚ä¸‹:\n");
+    printf("é€™æ˜¯ä¸€å€‹é€²éšç‰ˆ3x3åœˆåœˆå‰å‰çš„éŠæˆ²ï¼ŒéŠæˆ²ç›®æ¨™ä¾èˆŠæ˜¯è¦å®Œæˆé€£ç·š\n");
+    printf("ç„¶è€Œä¸åŒæ–¼æ™®é€šåœˆåœˆå‰å‰çš„æ˜¯ï¼Œæ¯å€‹ç©å®¶æ‰‹ä¸Šæœ‰å¤§ã€ä¸­ã€å°ä¸‰ç¨®æ£‹å­ï¼Œæ¯ç¨®å„å…©å€‹\n");
+    printf("å¤§æ£‹å­å¯ä»¥è“‹éå°æ‰‹çš„ä¸­æ£‹å­ï¼Œä¸­æ£‹å­å¯ä»¥è“‹éå°æ‰‹çš„å°æ£‹å­\n");
+    printf("ä¹Ÿå› ç‚ºé€™å€‹è¦å‰‡ï¼Œè®“ç°¡å–®çš„åœˆåœˆå‰å‰å¢åŠ ä¸å°‘è®Šæ•¸ï¼Œæ‰€ä»¥ï¼Œè®“æˆ‘å€‘é–‹å§‹å§!\n");
+    printf("ç©å®¶1 (X)ï¼Œç©å®¶2 (O)ã€‚\n");
 
     while (true) {
         //printBoard();
-        printf("ª±®a %d ªº¦^¦X¡I\n", currentPlayer);
-        printf("½Ğ¥ı¿é¤J´Ñ¤l¤j¤p (1-¤p, 2-¤¤, 3-¤j): ");
+        printf("ç©å®¶ %d çš„å›åˆï¼\n", currentPlayer);
+        printf("è«‹å…ˆè¼¸å…¥æ£‹å­å¤§å° (1-å°, 2-ä¸­, 3-å¤§): ");
         scanf("%d", &size);
-        printf("½Ğ¿é¤J­n©ñ¦b²Ä´X¦æ(¤ô¥­) (0-2): ");
+        printf("è«‹è¼¸å…¥è¦æ”¾åœ¨ç¬¬å¹¾è¡Œ(æ°´å¹³) (0-2): ");
         scanf("%d", &row);
-        printf("½Ğ¿é¤J­n©ñ¦b²Ä´X¦C(««ª½) (0-2): ");
+        printf("è«‹è¼¸å…¥è¦æ”¾åœ¨ç¬¬å¹¾åˆ—(å‚ç›´) (0-2): ");
         scanf("%d", &col);
         /*
         if (placePiece(currentPlayer, size, row, col)) {
             if (checkWin(currentPlayer)) {
                 printBoard();
-                printf("ª±®a %d Ä¹¤F¡I\n", currentPlayer);
+                printf("ç©å®¶ %d è´äº†ï¼\n", currentPlayer);
                 break;
             }
-            currentPlayer = (currentPlayer == PLAYER1) ? PLAYER2 : PLAYER1;  //¦^¦Xµ²§ô«á¡A§ğ¦u¥æ´«
+            currentPlayer = (currentPlayer == PLAYER1) ? PLAYER2 : PLAYER1;  //å›åˆçµæŸå¾Œï¼Œæ”»å®ˆäº¤æ›
         }
         else {
-            printf("³o¬OµL®Ä¾Ş§@¡A½Ğ­«¸Õ¡I\n");
+            printf("é€™æ˜¯ç„¡æ•ˆæ“ä½œï¼Œè«‹é‡è©¦ï¼\n");
         }
         */
     }
