@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #define EMPTY 0
@@ -6,51 +6,51 @@
 #define PLAYER2 2
 
 typedef struct {
-    int size;  // ´Ñ¤l¤j¤p        0 - µL     || 1 - ¤p     ||  2 - ¤¤      || 3 - ¤j
-    int owner; // ´Ñ¤lÄİ©óª±®aªº  0 - µL     || 1 - ª±®a1  ||  2 - ª±®a2
+    int size;  // æ£‹å­å¤§å°        0 - ç„¡     || 1 - å°     ||  2 - ä¸­      || 3 - å¤§
+    int owner; // æ£‹å­å±¬æ–¼ç©å®¶çš„  0 - ç„¡     || 1 - ç©å®¶1  ||  2 - ç©å®¶2
 } Cell;
 
-Cell board[3][3]; // 3 x 3 ´Ñ½L
-int pieces[2][3] = { {2, 2, 2}, {2, 2, 2} }; // ª±®a¦U¦Ûªº³Ñ©ó´Ñ¤l¼Æ : ¤p¡B¤¤¡B¤j
+Cell board[3][3]; // 3 x 3 æ£‹ç›¤
+int pieces[2][3] = { {2, 2, 2}, {2, 2, 2} }; // ç©å®¶å„è‡ªçš„å‰©æ–¼æ£‹å­æ•¸ : å°ã€ä¸­ã€å¤§
 
-//«Ø¥ß´Ñ½L
+//å»ºç«‹æ£‹ç›¤
 //void initializeBoard()
 
-//¦C¦L´Ñ½L
+//åˆ—å°æ£‹ç›¤
 //void printBoard()
 
-//ÀË¬d¬O§_¦³ª±®aÀò³Ó
+//æª¢æŸ¥æ˜¯å¦æœ‰ç©å®¶ç²å‹
 bool checkWin(int player) {
     for (int i = 0; i < 3; i++) {
-        // ÀË¬d¦æ©Î¦C
+        // æª¢æŸ¥è¡Œæˆ–åˆ—
         if ((board[i][0].owner == player && board[i][1].owner == player && board[i][2].owner == player) ||
             (board[0][i].owner == player && board[1][i].owner == player && board[2][i].owner == player)) {
             return true;
         }
     }
-    // ÀË¬d¹ï¨¤½u
+    // æª¢æŸ¥å°è§’ç·š
     if ((board[0][0].owner == player && board[1][1].owner == player && board[2][2].owner == player) ||
         (board[0][2].owner == player && board[1][1].owner == player && board[2][0].owner == player)) {
         return true;
     }
     return false;
- }
+}
 
-//ÀË¬d©ñ¸m´Ñ¤l®É¡A¦³µL¦X¥GÅŞ¿è
+//æª¢æŸ¥æ”¾ç½®æ£‹å­æ™‚ï¼Œæœ‰ç„¡åˆä¹é‚è¼¯
 bool placePiece(int player, int size, int row, int col) {
     if (row < 0 || row >= 3 || col < 0 || col >= 3) {
-        printf("¦ì¸m¶W¥X´Ñ½L½d³ò¡I\n");
+        printf("ä½ç½®è¶…å‡ºæ£‹ç›¤ç¯„åœï¼\n");
         return false;
     }
     if (pieces[player - 1][size - 1] <= 0) {
-        printf("¨S¦³³Ñ¾lªº¸Ó¤j¤p´Ñ¤l¡I\n");
+        printf("æ²’æœ‰å‰©é¤˜çš„è©²å¤§å°æ£‹å­ï¼\n");
         return false;
     }
     if (board[row][col].size >= size) {
-        printf("·í«e¦ì¸m¤w¦³¬Ûµ¥©Î§ó¤jªº´Ñ¤l¡I\n");
+        printf("ç•¶å‰ä½ç½®å·²æœ‰ç›¸ç­‰æˆ–æ›´å¤§çš„æ£‹å­ï¼\n");
         return false;
     }
-    // ©ñ¸m´Ñ¤l
+    // æ”¾ç½®æ£‹å­
     board[row][col].size = size;
     board[row][col].owner = player;
     pieces[player - 1][size - 1]--;
@@ -58,7 +58,7 @@ bool placePiece(int player, int size, int row, int col) {
 }
 
 int main() {
-    
-   
+
+
 
 }
