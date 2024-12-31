@@ -1,3 +1,2 @@
 C:\Users\yangz\OneDrive\Desktop\Project1\temp\debug\Project1.exe
-C:\Users\Kyle\OneDrive\桌面\GOBBLET-GOBBLERS\Project1\temp\debug\Project1.exe
-C:\Users\lin\Desktop\GOBBLET-GOBBLERS\Project1\temp\debug\Project1.exe
+C:\Users\yangz\OneDrive\Desktop\GOBBLET-GOBBLERS\Project1\temp\debug\Project1.exe

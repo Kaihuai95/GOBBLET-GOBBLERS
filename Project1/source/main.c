@@ -1,99 +1,52 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define EMPTY 0
+#define EMPTY 0      //ç‚ºç©º
 #define PLAYER1 1
 #define PLAYER2 2
 
 typedef struct {
-    int size;
-    int owner;
+    int size;  // æ£‹å­å¤§å°        0 - ç„¡     || 1 - å°     ||  2 - ä¸­      || 3 - å¤§
+    int owner; // æ£‹å­å±¬æ–¼ç©å®¶çš„  0 - ç„¡     || 1 - ç©å®¶1  ||  2 - ç©å®¶2
 } Cell;
 
-Cell board[3][3]; // 3 x 3 ´Ñ½L
-int pieces[2][3] = { {2, 2, 2}, {2, 2, 2} }; // ª±®a¦U¦Ûªº³Ñ©ó´Ñ¤l¼Æ : ¤p¡B¤¤¡B¤j
+Cell board[3][3]; // 3 x 3 æ£‹ç›¤
+int pieces[2][3] = { {2, 2, 2}, {2, 2, 2} }; // ç©å®¶å„è‡ªçš„å‰©æ–¼æ£‹å­æ•¸ : å°ã€ä¸­ã€å¤§
 
-//«Ø¥ß´Ñ½L
-//void initializeBoard()
-
-//¦C¦L´Ñ½L
-//void printBoard()
-
-//ÀË¬d¬O§_¦³ª±®aÀò³Ó
-bool checkWin(int player) {
+// åˆå§‹åŒ–æ£‹ç›¤
+void initializeBoard() {
     for (int i = 0; i < 3; i++) {
-        //ÀË¬d¦æ©Î¦C
-        if ((board[i][0].owner == player && board[i][1].owner == player && board[i][2].owner == player) ||
-            (board[0][i].owner == player && board[1][i].owner == player && board[2][i].owner == player)) {
-            return true;
+        for (int j = 0; j < 3; j++) {
+            board[i][j].size = EMPTY;   //åˆå§‹åŒ–æ ¼å­æ”¾'X','O'çš„å¤§å°
+            board[i][j].owner = EMPTY;  //åˆå§‹åŒ–æ ¼å­çš„æ“æœ‰è€…
         }
     }
-    //ÀË¬d¹ï¨¤½u
-    if ((board[0][0].owner == player && board[1][1].owner == player && board[2][2].owner == player) ||
-        (board[0][2].owner == player && board[1][1].owner == player && board[2][0].owner == player)) {
-        return true;
-    }
-    return false;
 }
 
-//ºX¤l©ñ¸mÅŞ¿è
-bool placePiece(int player, int size, int row, int col) {
-    if (row < 0 || row >= 3 || col < 0 || col >= 3) {
-        printf("¦ì¸m¶W¥X´Ñ½L½d³ò¡I\n");
-        return false;
+// åˆ—å°æ£‹ç›¤
+void printBoard() {
+    printf("\næ£‹ç›¤ç‹€æ…‹:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (board[i][j].owner == EMPTY) {   //åˆ¤æ–·æ ¼å­æ˜¯å¦æœ‰è¢«ä½”é ˜
+                printf("[   ] ");
+            }
+            else {
+                printf("[%c%d] ", board[i][j].owner == PLAYER1 ? 'X' : 'O',
+                    board[i][j].size);  //åˆ¤æ–·æ˜¯å¦ç‚ºç©å®¶ä¸€  YES'X'  NO'O',ä¸¦åˆ—å‡ºä»–å€‘æ”¾æ£‹å­çš„å¤§å°
+            }
+        }
+        printf("\n");
     }
-    if (pieces[player - 1][size - 1] <= 0) {
-        printf("¨S¦³³Ñ¾lªº¸Ó¤j¤p´Ñ¤l¡I\n");
-        return false;
-    }
-    if (board[row][col].size >= size) {
-        printf("·í«e¦ì¸m¤w¦³¬Ûµ¥©Î§ó¤jªº´Ñ¤l¡I\n");
-        return false;
-    }
-    //©ñ¸m´Ñ¤l
-    board[row][col].size = size;
-    board[row][col].owner = player;
-    pieces[player - 1][size - 1]--;
-    return true;
 }
-
 int main() {
     int currentPlayer = PLAYER1;
     int row, col, size;
-    //initializeBoard();
+    initializeBoard();
+    printBoard();
 
-    printf("Åwªï¨Ó¨ìGobblet Gobblers! ¹CÀ¸¤¶²Ğ¦p¤U:\n");
-    printf("³o¬O¤@­Ó¶i¶¥ª©3x3°é°é¤e¤eªº¹CÀ¸¡A¹CÀ¸¥Ø¼Ğ¨ÌÂÂ¬O­n§¹¦¨³s½u\n");
-    printf("µM¦Ó¤£¦P©ó´¶³q°é°é¤e¤eªº¬O¡A¨C­Óª±®a¤â¤W¦³¤j¡B¤¤¡B¤p¤TºØ´Ñ¤l¡A¨CºØ¦U¨â­Ó\n");
-    printf("¤j´Ñ¤l¥i¥H»\¹L¹ï¤âªº¤¤´Ñ¤l¡A¤¤´Ñ¤l¥i¥H»\¹L¹ï¤âªº¤p´Ñ¤l\n");
-    printf("¤]¦]¬°³o­Ó³W«h¡AÅıÂ²³æªº°é°é¤e¤e¼W¥[¤£¤ÖÅÜ¼Æ¡A©Ò¥H¡AÅı§Ú­Ì¶}©l§a!\n");
-    printf("ª±®a1 (X)¡Aª±®a2 (O)¡C\n");
-
-    while (true) {
-        //printBoard();
-        printf("ª±®a %d ªº¦^¦X¡I\n", currentPlayer);
-        printf("½Ğ¥ı¿é¤J´Ñ¤l¤j¤p (1-¤p, 2-¤¤, 3-¤j): ");
-        scanf("%d", &size);
-        printf("½Ğ¿é¤J­n©ñ¦b²Ä´X¦æ(¤ô¥­) (0-2): ");
-        scanf("%d", &row);
-        printf("½Ğ¿é¤J­n©ñ¦b²Ä´X¦C(««ª½) (0-2): ");
-        scanf("%d", &col);
-        /*
-        if (placePiece(currentPlayer, size, row, col)) {
-            if (checkWin(currentPlayer)) {
-                printBoard();
-                printf("ª±®a %d Ä¹¤F¡I\n", currentPlayer);
-                break;
-            }
-            currentPlayer = (currentPlayer == PLAYER1) ? PLAYER2 : PLAYER1;  //¦^¦Xµ²§ô«á¡A§ğ¦u¥æ´«
-        }
-        else {
-            printf("³o¬OµL®Ä¾Ş§@¡A½Ğ­«¸Õ¡I\n");
-        }
-        */
-    }
-
+  
+    system("pause");
     return 0;
-
 }
