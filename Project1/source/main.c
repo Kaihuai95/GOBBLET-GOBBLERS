@@ -41,12 +41,6 @@ void printBoard() {
     }
 }
 int main() {
-    int currentPlayer = PLAYER1;
-    int row, col, size;
-    initializeBoard();
-    printBoard();
-
-  
     system("pause");
     return 0;
 }
