@@ -41,4 +41,21 @@ void printBoard() {
     }
 }
 int main() {
+
+    //測試
+    int currentPlayer = PLAYER1;
+    int row, col, size;
+    printBoard();
+    printf("玩家 %d 的回合！\n", currentPlayer);
+    printf("請先輸入棋子大小 (1-小, 2-中, 3-大): ");
+    scanf("%d", &size);
+    printf("請輸入要放在第幾行(水平) (0-2): ");
+    scanf("%d", &row);
+    printf("請輸入要放在第幾列(垂直) (0-2): ");
+    scanf("%d", &col);
+    board[row][col].size = size;
+    board[row][col].owner = currentPlayer;
+    pieces[currentPlayer - 1][size - 1]--;
+    printBoard();
+    //測試
 }
