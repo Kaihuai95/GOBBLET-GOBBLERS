@@ -1,8 +1,64 @@
-ï»¿#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#define EMPTY 0
+#define PLAYER1 1
+#define PLAYER2 2
+
+typedef struct {
+    int size;  // ´Ñ¤l¤j¤p        0 - µL     || 1 - ¤p     ||  2 - ¤¤      || 3 - ¤j
+    int owner; // ´Ñ¤lÄÝ©óª±®aªº  0 - µL     || 1 - ª±®a1  ||  2 - ª±®a2
+} Cell;
+
+Cell board[3][3]; // 3 x 3 ´Ñ½L
+int pieces[2][3] = { {2, 2, 2}, {2, 2, 2} }; // ª±®a¦U¦Ûªº³Ñ©ó´Ñ¤l¼Æ : ¤p¡B¤¤¡B¤j
+
+//«Ø¥ß´Ñ½L
+//void initializeBoard()
+
+//¦C¦L´Ñ½L
+//void printBoard()
+
+//ÀË¬d¬O§_¦³ª±®aÀò³Ó
+bool checkWin(int player) {
+    for (int i = 0; i < 3; i++) {
+        // ÀË¬d¦æ©Î¦C
+        if ((board[i][0].owner == player && board[i][1].owner == player && board[i][2].owner == player) ||
+            (board[0][i].owner == player && board[1][i].owner == player && board[2][i].owner == player)) {
+            return true;
+        }
+    }
+    // ÀË¬d¹ï¨¤½u
+    if ((board[0][0].owner == player && board[1][1].owner == player && board[2][2].owner == player) ||
+        (board[0][2].owner == player && board[1][1].owner == player && board[2][0].owner == player)) {
+        return true;
+    }
+    return false;
+ }
+
+//ÀË¬d©ñ¸m´Ñ¤l®É¡A¦³µL¦X¥GÅÞ¿è
+bool placePiece(int player, int size, int row, int col) {
+    if (row < 0 || row >= 3 || col < 0 || col >= 3) {
+        printf("¦ì¸m¶W¥X´Ñ½L½d³ò¡I\n");
+        return false;
+    }
+    if (pieces[player - 1][size - 1] <= 0) {
+        printf("¨S¦³³Ñ¾lªº¸Ó¤j¤p´Ñ¤l¡I\n");
+        return false;
+    }
+    if (board[row][col].size >= size) {
+        printf("·í«e¦ì¸m¤w¦³¬Ûµ¥©Î§ó¤jªº´Ñ¤l¡I\n");
+        return false;
+    }
+    // ©ñ¸m´Ñ¤l
+    board[row][col].size = size;
+    board[row][col].owner = player;
+    pieces[player - 1][size - 1]--;
+    return true;
+}
 
 int main() {
-    system("pause");
-    return 0;
+    
+   
+
 }
